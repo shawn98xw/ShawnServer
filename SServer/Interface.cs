@@ -7,5 +7,9 @@ namespace SServer
 		public void Stop();
 		public void ServerRun();
 	}
+	public interface IConnection
+    {
+
+    }
 }
 
