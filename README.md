@@ -1,7 +1,8 @@
-Tihs is a demo of server-client socket communication, which support multi client and infinity times connect.
+# What's this?
+Tihs is a demo of server-client socket communication, which support multi client and infinity times of connect.
 
 
-# How to push your code to github? 
+## How to push my code to github? 
 ```c
 git add .
 git status
