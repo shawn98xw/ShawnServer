@@ -1,5 +1,5 @@
 # What's this?
-Tihs is a demo of server-client socket communication, which support multi client and infinity times of connect.
+Tihs is a demo of server-client socket communication, which support multi clients and infinity times of message transfer.
 
 
 ## How to push my code to github? 
