@@ -1,1 +1,1 @@
-server socket
+Tihs is a demo of server-client socket communication, support multi client and infinity times connect.
