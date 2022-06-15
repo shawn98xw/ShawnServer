@@ -7,120 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ca94f8b6-d079-4e2c-a5c9-7cb32e776f7d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SClient/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SClient/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SClient/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SClient/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.SClient/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ShawnServer/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ShawnServer/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ShawnServer/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ShawnServer/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/ChatServer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/ChatServer.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Chat.csproj.nuget.dgspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/ChatServer.csproj.nuget.dgspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/ChatServer.csproj.nuget.g.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/ChatServer.csproj.nuget.g.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/Chat.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/Chat.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/Chat.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/Chat.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/ChatServer.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/ChatServer.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/ChatServer.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/ChatServer.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/ChatServer.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/ChatServer.csproj.AssemblyReference.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/project.nuget.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/project.packagespec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ChatServer/obj/rider.project.restore.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SClient/obj/project.packagespec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SClient/obj/rider.project.restore.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/bin/Debug/net6.0/SceneServer" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/bin/Debug/net6.0/SceneServer.deps.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/bin/Debug/net6.0/SceneServer.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/bin/Debug/net6.0/SceneServer.runtimeconfig.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SServer.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SServer.csproj.AssemblyReference.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SServer.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SServer.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SServer.genruntimeconfig.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.csproj.AssemblyReference.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.csproj.CoreCompileInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.genruntimeconfig.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.pdb" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/ref/SServer.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/ref/SceneServer.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/refint/SServer.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/refint/SceneServer.dll" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/SServer.csproj.nuget.g.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/SServer.csproj.nuget.g.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/SceneServer.csproj.nuget.dgspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/SceneServer.csproj.nuget.g.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/SceneServer.csproj.nuget.g.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/project.assets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/project.nuget.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/project.packagespec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SceneServer/obj/rider.project.restore.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShawnServer.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/SClient.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/SClient.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/bin/Debug/net6.0/SClient.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/bin/Debug/net6.0/SClient.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/bin/Debug/net6.0/SClient.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/bin/Debug/net6.0/SClient.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.dll" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.genruntimeconfig.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.genruntimeconfig.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/obj/Debug/net6.0/SClient.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/obj/SClient.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/obj/SClient.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SClient/obj/project.nuget.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SClient/obj/project.nuget.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer.sln" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer.sln.DotSettings.user" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/Interface.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/SServer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/SceneServer.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/Server.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/SceneServer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/bin/Debug/net6.0/SServer" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/bin/Debug/net6.0/SServer" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/bin/Debug/net6.0/SServer.deps.json" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/bin/Debug/net6.0/SServer.deps.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/bin/Debug/net6.0/SServer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/bin/Debug/net6.0/SServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SServer.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/bin/Debug/net6.0/SServer.runtimeconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/bin/Debug/net6.0/SServer.runtimeconfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/SServer.AssemblyInfo.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SServer.AssemblyInfo.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/SServer.AssemblyInfoInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SServer.AssemblyInfoInputs.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/SServer.GeneratedMSBuildEditorConfig.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SServer.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/SServer.GlobalUsings.g.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/Chat.GlobalUsings.g.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/SServer.assets.cache" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SServer.assets.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/SServer.csproj.AssemblyReference.cache" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/Chat.csproj.AssemblyReference.cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/SServer.csproj.CoreCompileInputs.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/SServer.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SServer.csproj.FileListAbsolute.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/SServer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/SServer.genruntimeconfig.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/SServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/bin/Debug/net6.0/SceneServer.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/apphost" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/apphost" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/ref/SServer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/Debug/net6.0/refint/SServer.dll" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/SServer.csproj.nuget.dgspec.json" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/obj/SServer.csproj.nuget.dgspec.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/SServer.csproj.nuget.g.props" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/obj/Chat.csproj.nuget.g.props" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/SServer.csproj.nuget.g.targets" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/obj/Chat.csproj.nuget.g.targets" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/project.assets.json" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/obj/project.assets.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/project.nuget.cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/project.packagespec.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SServer/obj/rider.project.restore.info" beforeDir="false" />
-    </list>
+    <list default="true" id="ca94f8b6-d079-4e2c-a5c9-7cb32e776f7d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -128,6 +15,8 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2323a136ab0b49bfb6a9b8610acaaecea1200/28/6771dc09/Socket.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ShawnClient/Program.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/ShawnClient/ShawnClient.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -183,7 +72,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1655299523379</updated>
-      <workItem from="1655299525809" duration="1899000" />
+      <workItem from="1655299525809" duration="2207000" />
     </task>
     <servers />
   </component>
