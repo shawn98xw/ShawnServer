@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/shawn/Projects/SServer/SServer/SServer.csproj": {}
+    "/Users/shawn/RiderProjects/SServer/SServer/SServer.csproj": {}
   },
   "projects": {
-    "/Users/shawn/Projects/SServer/SServer/SServer.csproj": {
+    "/Users/shawn/RiderProjects/SServer/SServer/SServer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/shawn/Projects/SServer/SServer/SServer.csproj",
+        "projectUniqueName": "/Users/shawn/RiderProjects/SServer/SServer/SServer.csproj",
         "projectName": "SServer",
-        "projectPath": "/Users/shawn/Projects/SServer/SServer/SServer.csproj",
+        "projectPath": "/Users/shawn/RiderProjects/SServer/SServer/SServer.csproj",
         "packagesPath": "/Users/shawn/.nuget/packages/",
-        "outputPath": "/Users/shawn/Projects/SServer/SServer/obj/",
+        "outputPath": "/Users/shawn/RiderProjects/SServer/SServer/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/shawn/.nuget/NuGet/NuGet.Config"

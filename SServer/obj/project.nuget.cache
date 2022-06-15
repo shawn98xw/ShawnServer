@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2sNSDtRis518YtUx0c3wPe32BFt9cS7dkEdwf7XoeA3Iw1AYLowxhwsyg1xb3xBfk1KDcGoSRc/YtVYeIlfIrg==",
+  "dgSpecHash": "W6A7w6qTzU9oNXA8LD997TfxT6eomztKxOY92AVV/6w9EC7FgvHIHzLEJ7oofY3sOSLa2ptfkrusupn0uutG1g==",
   "success": true,
-  "projectFilePath": "/Users/shawn/Projects/SServer/SServer/SServer.csproj",
+  "projectFilePath": "/Users/shawn/RiderProjects/SServer/SServer/SServer.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
