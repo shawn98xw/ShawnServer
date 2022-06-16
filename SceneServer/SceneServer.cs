@@ -15,7 +15,7 @@ namespace SceneServer
 			this.y = 0;
 		}
 	}
-	public class Server
+	public class SceneServer
 	{
 		public string ServerName;
 		public string ip;
@@ -23,7 +23,7 @@ namespace SceneServer
 		private Socket socket;
 		private byte[] buffer;
 		private Dictionary<Socket, Role> rolesMap;
-		public Server(string name, int port)
+		public SceneServer(string name, int port)
 		{
 			this.ServerName = name;
 			ip = "0.0.0.0";
@@ -51,6 +51,9 @@ namespace SceneServer
 				ListenClientConnect();
 			});
 			task.Start();
+			
+			
+			
 			task.Wait();
 		}
 		public void Stop()
@@ -107,8 +110,17 @@ namespace SceneServer
 					role.y++;
 				else if (str == "d")
 					role.y--;
+				else
+				{
+					
+				}
 				Console.WriteLine($"{clientSocket.RemoteEndPoint}:{str}, role position = ({role.x},{role.y})");
 			}
+		}
+
+		public void ConnectToChat()
+		{
+			
 		}
 	}
 }

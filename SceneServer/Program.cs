@@ -11,7 +11,7 @@ namespace SceneServer
 		static void Main(string[] args)
         {
 			//创建一个server
-			Server server = new Server("aa", 8888);
+			SceneServer server = new SceneServer("aa", 8888);
 			server.Start();
 		}
 	}
