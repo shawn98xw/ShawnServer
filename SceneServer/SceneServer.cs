@@ -79,6 +79,8 @@ namespace SceneServer
 			Console.WriteLine(str);
 			
 			
+			
+			
 		}
 
 		/// <summary>
