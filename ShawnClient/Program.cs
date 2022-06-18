@@ -11,7 +11,7 @@ namespace SocketClientApp
     {
         static void Main(string[] args)
         {
-            SocketClient client = new SocketClient(8888);
+            SocketClient client = new SocketClient(8889);
             client.StartClient();
             Console.ReadKey();
         }

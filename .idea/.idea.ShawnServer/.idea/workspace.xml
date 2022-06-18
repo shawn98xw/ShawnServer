@@ -8,31 +8,60 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a7e2ca04-421c-4e93-b4dd-fea3ee395dfc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ShawnClient/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.ShawnServer/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/Class1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/Common.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/Singleton.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/Common.csproj.nuget.dgspec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/Common.csproj.nuget.g.props" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/Common.csproj.nuget.g.targets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/Common.AssemblyInfo.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/Common.AssemblyInfoInputs.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/Common.GeneratedMSBuildEditorConfig.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/Common.GlobalUsings.g.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/Common.assets.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/Common.csproj.AssemblyReference.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/project.assets.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/project.nuget.cache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/project.packagespec.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Common/obj/rider.project.restore.info" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ShawnServer.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ChatServer/ChatServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/ChatServer.cs" afterDir="false" />
+    <list default="true" id="a7e2ca04-421c-4e93-b4dd-fea3ee395dfc" name="Changes" comment="async">
+      <change afterPath="$PROJECT_DIR$/.gitconfig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.ShawnClient/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.ShawnClient/.idea/indexLayout.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.ShawnClient/.idea/projectSettingsUpdater.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.ShawnClient/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/bin/Debug/net6.0/ChatServer" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/bin/Debug/net6.0/ChatServer.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/bin/Debug/net6.0/ChatServer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/bin/Debug/net6.0/ChatServer.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/bin/Debug/net6.0/ChatServer.runtimeconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/ChatServer.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/ChatServer.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/ChatServer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/ChatServer.genruntimeconfig.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/ChatServer.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/apphost" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/ref/ChatServer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ChatServer/obj/Debug/net6.0/refint/ChatServer.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/bin/Debug/net6.0/Common.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/bin/Debug/net6.0/Common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/bin/Debug/net6.0/Common.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/Common.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/Common.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/Common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/Common.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/ref/Common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Common/obj/Debug/net6.0/refint/Common.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ShawnClient/bin/Debug/net6.0/ShawnClient" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ShawnClient/bin/Debug/net6.0/ShawnClient.deps.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ShawnClient/bin/Debug/net6.0/ShawnClient.runtimeconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ShawnClient/obj/Debug/net6.0/ShawnClient.csproj.CoreCompileInputs.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ShawnClient/obj/Debug/net6.0/ShawnClient.csproj.FileListAbsolute.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ShawnClient/obj/Debug/net6.0/ShawnClient.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ShawnClient/obj/Debug/net6.0/ShawnClient.genruntimeconfig.cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ShawnClient/obj/Debug/net6.0/ShawnClient.pdb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ShawnClient/obj/Debug/net6.0/ref/ShawnClient.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ShawnClient/obj/Debug/net6.0/refint/ShawnClient.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShawnClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShawnClient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ShawnServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ShawnServer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ChatServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ChatServer/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SceneServer/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SceneServer/SceneServer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/SceneServer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ShawnServer.sln" beforeDir="false" afterPath="$PROJECT_DIR$/ShawnServer.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SceneServer/bin/Debug/net6.0/SceneServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/bin/Debug/net6.0/SceneServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SceneServer/bin/Debug/net6.0/SceneServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/bin/Debug/net6.0/SceneServer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/SceneServer.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/ref/SceneServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/ref/SceneServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/refint/SceneServer.dll" beforeDir="false" afterPath="$PROJECT_DIR$/SceneServer/obj/Debug/net6.0/refint/SceneServer.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShawnClient/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/ShawnClient/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShawnClient/bin/Debug/net6.0/ShawnClient.dll" beforeDir="false" afterPath="$PROJECT_DIR$/ShawnClient/bin/Debug/net6.0/ShawnClient.dll" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShawnClient/bin/Debug/net6.0/ShawnClient.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/ShawnClient/bin/Debug/net6.0/ShawnClient.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ShawnClient/obj/Debug/net6.0/apphost" beforeDir="false" afterPath="$PROJECT_DIR$/ShawnClient/obj/Debug/net6.0/apphost" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,6 +70,13 @@
   </component>
   <component name="Git.Settings">
     <option name="PUSH_AUTO_UPDATE" value="true" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/IL/2323a136ab0b49bfb6a9b8610acaaecea1200/a9/21a54641/02000040pdb.il" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/2323a136ab0b49bfb6a9b8610acaaecea1200/f1/e54184e5/SocketAsyncEventArgs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1b695df9f9b6fcbc7302c19bd168c83f443ca8fd118d070293e7564272/SocketAsyncEventArgs.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/611efef9cc4db44681420ed548e67f2174d4f12bb94a911f6f81a4ba7ca/Socket.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/de87b1f952ca792c9bb2aa1763a81cc536109d948e968d964fcf1b6bfb1648/Thread.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -68,7 +104,7 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected=".NET Project.ChatServer">
+  <component name="RunManager" selected=".NET Project.SceneServer">
     <configuration name="ChatServer" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="" />
       <option name="PROGRAM_PARAMETERS" value="" />
@@ -118,6 +154,11 @@
       <workItem from="1655303175476" duration="994000" />
       <workItem from="1655304363782" duration="6507000" />
       <workItem from="1655382401896" duration="2361000" />
+      <workItem from="1655386071851" duration="675000" />
+      <workItem from="1655388166478" duration="1440000" />
+      <workItem from="1655436558968" duration="6238000" />
+      <workItem from="1655486328295" duration="39634000" />
+      <workItem from="1655547086479" duration="374000" />
     </task>
     <task id="LOCAL-00001" summary="rider">
       <created>1655303577070</created>
@@ -175,7 +216,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655305581028</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="create chatServer">
+      <created>1655386138654</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1655386138654</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -203,6 +251,52 @@
     <MESSAGE value="ignore" />
     <MESSAGE value="delete useless directory" />
     <MESSAGE value="delete" />
-    <option name="LAST_COMMIT_MESSAGE" value="delete" />
+    <MESSAGE value="create chatServer" />
+    <option name="LAST_COMMIT_MESSAGE" value="create chatServer" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SceneServer/SceneServer.cs</url>
+          <line>62</line>
+          <properties documentPath="$PROJECT_DIR$/SceneServer/SceneServer.cs" initialLine="62" containingFunctionPresentation="method 'accept_Complete'">
+            <startOffsets>
+              <option value="1591" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1629" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SceneServer/SceneServer.cs</url>
+          <line>77</line>
+          <properties documentPath="$PROJECT_DIR$/SceneServer/SceneServer.cs" initialLine="77" containingFunctionPresentation="method 'io_Complete'">
+            <startOffsets>
+              <option value="2096" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2153" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/SceneServer/SceneServer.cs</url>
+          <line>51</line>
+          <properties documentPath="$PROJECT_DIR$/SceneServer/SceneServer.cs" initialLine="51" containingFunctionPresentation="method 'StartListen'">
+            <startOffsets>
+              <option value="1200" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1253" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

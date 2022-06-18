@@ -9,7 +9,7 @@ public class Program
 
     static void Main(string[] args)
     {
-        ChatServer chatServer = new ChatServer();
+        ChatServer chatServer = new ChatServer("🎒", 2999);
         chatServer.Start();
     }
 }

@@ -1,0 +1,15 @@
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/obj/Debug/net6.0/ChatServer.csproj.AssemblyReference.cache
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/obj/Debug/net6.0/ChatServer.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/obj/Debug/net6.0/ChatServer.AssemblyInfoInputs.cache
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/obj/Debug/net6.0/ChatServer.AssemblyInfo.cs
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/obj/Debug/net6.0/ChatServer.csproj.CoreCompileInputs.cache
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/bin/Debug/net6.0/ChatServer
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/bin/Debug/net6.0/ChatServer.deps.json
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/bin/Debug/net6.0/ChatServer.runtimeconfig.json
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/bin/Debug/net6.0/ChatServer.dll
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/bin/Debug/net6.0/ChatServer.pdb
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/obj/Debug/net6.0/ChatServer.dll
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/obj/Debug/net6.0/refint/ChatServer.dll
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/obj/Debug/net6.0/ChatServer.pdb
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/obj/Debug/net6.0/ChatServer.genruntimeconfig.cache
+/Users/shawn/RiderProjects/ShawnServer/ChatServer/obj/Debug/net6.0/ref/ChatServer.dll

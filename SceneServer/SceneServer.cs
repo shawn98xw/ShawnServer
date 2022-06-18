@@ -20,7 +20,7 @@ namespace SceneServer
 		public string ServerName;
 		public string ip;
 		public int port;
-		private Socket socket;
+		private Socket listenSocket;
 		private byte[] buffer;
 		private Dictionary<Socket, Role> rolesMap;
 		public SceneServer(string name, int port)
@@ -28,42 +28,57 @@ namespace SceneServer
 			this.ServerName = name;
 			ip = "0.0.0.0";
 			this.port = port;
-			socket = null;
+			listenSocket = null;
+			
 			buffer = new byte[1024 * 1024 * 2];
 			rolesMap = new Dictionary<Socket, Role>();
+			(int id, int liveness) newLeader = (0, 0);
 		}
-		public void Start()
+		public void StartListen()
 		{
 			//1 实例化套接字(IP4寻找协议,流式协议,TCP协议)
-			socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+			listenSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 			//2 创建IP对象
 			IPAddress address = IPAddress.Parse(ip);
 			//3 创建网络端口,包括ip和端口
 			IPEndPoint endPoint = new IPEndPoint(address, port);
 			//4 绑定套接字
-			socket.Bind(endPoint);
+			listenSocket.Bind(endPoint);
 			//5 设置最大连接数
-			socket.Listen(int.MaxValue);
-			Console.WriteLine($"监听端口：{socket.LocalEndPoint}");
-			//6 开始监听
-			var task = new Task(() =>
-			{
-				ListenClientConnect();
-			});
-			task.Start();
-			
-			
-			
-			task.Wait();
+			listenSocket.Listen(int.MaxValue);
+			Console.WriteLine($"监听端口：{listenSocket.LocalEndPoint}");
+			//6 异步等待客户端连接
+			var acceptEventArgs = createAcceptEventArgs();
+			bool res = listenSocket.AcceptAsync(acceptEventArgs);
 		}
-		public void Stop()
+		private SocketAsyncEventArgs createAcceptEventArgs()
 		{
+			var acceptEventArgs = new SocketAsyncEventArgs();
+			acceptEventArgs.Completed += new EventHandler<SocketAsyncEventArgs>(accept_Complete);
+			return acceptEventArgs;
+		}
+		private void accept_Complete(object obj, SocketAsyncEventArgs acceptEventArgs)
+		{
+			//接收客户端消息
+			var ioEventArgs = createIOEventArgs();
+			ioEventArgs.AcceptSocket = acceptEventArgs.AcceptSocket;
+			ioEventArgs.AcceptSocket.ReceiveAsync(ioEventArgs);
+		}
 
-		}
-		public void ServerRun()
+		private SocketAsyncEventArgs createIOEventArgs()
 		{
-			Start();
+			var ioEventArgs = new SocketAsyncEventArgs();
+			ioEventArgs.SetBuffer(new byte[1024 * 1024 * 2]);
+			ioEventArgs.Completed += new EventHandler<SocketAsyncEventArgs>(io_Complete);
+			return ioEventArgs;
 		}
+
+		private void io_Complete(object obj, SocketAsyncEventArgs ioEventArgs)
+		{
+			string str = Encoding.UTF8.GetString(ioEventArgs.Buffer);
+			Console.WriteLine(str);
+		}
+
 		/// <summary>
 		/// 监听客户端连接
 		/// </summary>
@@ -72,10 +87,10 @@ namespace SceneServer
 			while (true)
 			{
 				//阻塞地等待客户端连接，处理客户端链接业务
-				Socket clientSocket = socket.Accept();
+				Socket clientSocket = listenSocket.Accept();
 				Role role = new Role();
 				rolesMap.Add(clientSocket, role);
-				clientSocket.Send(Encoding.UTF8.GetBytes($"Connected to server {socket.LocalEndPoint}"));
+				clientSocket.Send(Encoding.UTF8.GetBytes($"Connected to server {listenSocket.LocalEndPoint}"));
 				var task = new Task(() =>
 				{
 					ReceiveMessage(clientSocket);
@@ -116,11 +131,6 @@ namespace SceneServer
 				}
 				Console.WriteLine($"{clientSocket.RemoteEndPoint}:{str}, role position = ({role.x},{role.y})");
 			}
-		}
-
-		public void ConnectToChat()
-		{
-			
 		}
 	}
 }

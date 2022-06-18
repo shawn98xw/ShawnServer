@@ -1,0 +1,15 @@
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/bin/Debug/net6.0/ShawnClient
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/bin/Debug/net6.0/ShawnClient.deps.json
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/bin/Debug/net6.0/ShawnClient.runtimeconfig.json
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/bin/Debug/net6.0/ShawnClient.dll
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/bin/Debug/net6.0/ShawnClient.pdb
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/obj/Debug/net6.0/ShawnClient.csproj.AssemblyReference.cache
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/obj/Debug/net6.0/ShawnClient.GeneratedMSBuildEditorConfig.editorconfig
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/obj/Debug/net6.0/ShawnClient.AssemblyInfoInputs.cache
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/obj/Debug/net6.0/ShawnClient.AssemblyInfo.cs
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/obj/Debug/net6.0/ShawnClient.csproj.CoreCompileInputs.cache
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/obj/Debug/net6.0/ShawnClient.dll
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/obj/Debug/net6.0/refint/ShawnClient.dll
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/obj/Debug/net6.0/ShawnClient.pdb
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/obj/Debug/net6.0/ShawnClient.genruntimeconfig.cache
+/Users/shawn/RiderProjects/ShawnServer/ShawnClient/obj/Debug/net6.0/ref/ShawnClient.dll
