@@ -77,6 +77,8 @@ namespace SceneServer
 		{
 			string str = Encoding.UTF8.GetString(ioEventArgs.Buffer);
 			Console.WriteLine(str);
+			
+			
 		}
 
 		/// <summary>
