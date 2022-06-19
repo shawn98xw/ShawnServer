@@ -1,4 +1,4 @@
 .idea
-.sln.DotSettings.user
+*.sln.DotSettings.user
 bin/
 obj/
