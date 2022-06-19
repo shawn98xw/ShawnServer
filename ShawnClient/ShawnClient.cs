@@ -46,8 +46,8 @@ namespace SocketUtil
             //4.0 建立连接
             _socket.Connect(endPoint);
             //5.0 接收数据
-            int length = _socket.Receive(buffer);
-            Console.WriteLine($"{Encoding.UTF8.GetString(buffer, 0, length)}");
+            // int length = _socket.Receive(buffer);
+            // Console.WriteLine($"{Encoding.UTF8.GetString(buffer, 0, length)}");
             //6.0 向服务器发送消息
             while(true)
             {

@@ -1,39 +1,46 @@
-﻿using System.Net;
+﻿using System;
+using System.Data.Common;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
-using System.Xml;
+using System.Threading;
+using Common;
 
 namespace SceneServer
 {
-	public class Role
-	{
-		public int x;
-		public int y;
-
-		public Role()
-		{
-			this.x = 0;
-			this.y = 0;
-		}
-	}
 	public class SceneServer
 	{
 		public string ServerName;
 		public string ip;
 		public int port;
 		private Socket listenSocket;
-		private byte[] buffer;
-		private Dictionary<Socket, Role> rolesMap;
+		private SocketAsyncEventArgsPool saeaPool; //saea对象池
+		private BufferPool bufferManager; //buffer缓存池
+		private int connectCount; //最大连接数
+		private int bufferSize; //缓存单位
+		private SemaphoreSlim acceptLimit; //控制同时访问线程数的信号量
 		public SceneServer(string name, int port)
 		{
 			this.ServerName = name;
 			ip = "0.0.0.0";
 			this.port = port;
 			listenSocket = null;
+			connectCount = 20;
+			bufferSize = 25;
+
+			bufferManager = new BufferPool(connectCount * bufferSize, bufferSize);
+			saeaPool = new SocketAsyncEventArgsPool(connectCount);
 			
-			buffer = new byte[1024 * 1024 * 2];
-			rolesMap = new Dictionary<Socket, Role>();
-			(int id, int liveness) newLeader = (0, 0);
+			for (int i = 0; i < connectCount; i++)
+			{
+				SocketAsyncEventArgs saea = new SocketAsyncEventArgs();
+				saea.Completed += new EventHandler<SocketAsyncEventArgs>(IOCompleted);
+				saeaPool.Push(saea);
+				
+				//bufferManager.SetBuffer(saea);
+			}
+
+			acceptLimit = new SemaphoreSlim(connectCount, connectCount);
 		}
 		public void StartListen()
 		{
@@ -57,6 +64,8 @@ namespace SceneServer
 
 		private void startAccept(SocketAsyncEventArgs e)
 		{
+			acceptLimit.Wait();
+			
 			e.AcceptSocket = null;
 			if (listenSocket.AcceptAsync(e) == false) //异步侦听连接
 				acceptComplete(null, e);
@@ -67,66 +76,76 @@ namespace SceneServer
 			Console.WriteLine($"侦听到来自{clientSocket.RemoteEndPoint}的连接请求");
 
 			//开启一个新线程异步读取消息
-			SocketAsyncEventArgs receiveArgs = new SocketAsyncEventArgs();
-			receiveArgs.Completed += new EventHandler<SocketAsyncEventArgs>(receiveComplete);
-			receiveArgs.SetBuffer(new byte[1024], 0, 1024); //设置读取缓存
-			receiveArgs.AcceptSocket = e.AcceptSocket;
-			startReceive(receiveArgs);
+			SocketAsyncEventArgs saea = saeaPool.Pop();
+			bufferManager.SetBuffer(saea);
+			saea.AcceptSocket = e.AcceptSocket;
+			startReceive(saea);
 
-			//开启一个新线程异步发送消息
-			SocketAsyncEventArgs sendArgs = new SocketAsyncEventArgs();
-			sendArgs.Completed += new EventHandler<SocketAsyncEventArgs>(sendComplete);
-			sendArgs.AcceptSocket = e.AcceptSocket;
-			sendArgs.UserToken = 1; //用户数据
-			startSend(sendArgs);
-			
 			startAccept(e); //进入下一个侦听周期
 		}
 
 		private void startReceive(SocketAsyncEventArgs e)
 		{
 			if (e.AcceptSocket.ReceiveAsync(e) == false)
-				receiveComplete(null, e);
+				receiveCompleted(null, e);
 		}
-		private void receiveComplete(object obj, SocketAsyncEventArgs e)
+		private void receiveCompleted(object obj, SocketAsyncEventArgs e)
 		{
 			if (e.BytesTransferred == 0 || e.SocketError != SocketError.Success)
 			{
-				Console.WriteLine($"关闭来自{e.AcceptSocket.RemoteEndPoint}的连接");
-				e.AcceptSocket.Shutdown(SocketShutdown.Both);
-				e.AcceptSocket.Close();
+				closeSocket(e);
 				return;
 			}
 			string str = Encoding.UTF8.GetString(e.Buffer, e.Offset, e.BytesTransferred);
 			Console.WriteLine($"收到来自{e.AcceptSocket.RemoteEndPoint}的消息：{str}");
 			
-			//进入下一个读取周期
-			startReceive(e);
+			//将消息回发
+			e.SetBuffer(e.Offset, e.BytesTransferred);
+			startSend(e);
 		}
 
 		private void startSend(SocketAsyncEventArgs e)
 		{
-			if ((int)e.UserToken > 5)
-				return;
-
-			byte[] sendBuff = Encoding.UTF8.GetBytes($"服务器消息：{e.UserToken}");
-			e.SetBuffer(sendBuff, 0, sendBuff.Length);
-
 			if(e.AcceptSocket.SendAsync(e) == false)
-				sendComplete(null, e);
+				sendCompleted(null, e);
 		}
-		private void sendComplete(object obj, SocketAsyncEventArgs e)
+		private void sendCompleted(object obj, SocketAsyncEventArgs e)
 		{
 			if (e.SocketError != SocketError.Success)
 			{
-				e.AcceptSocket.Shutdown(SocketShutdown.Send);
-				e.AcceptSocket.Close();
+				closeSocket(e);
 				return;
 			}
-			Console.WriteLine($"成功向{e.RemoteEndPoint}发送信息：{e.UserToken}");
-			e.UserToken = (int)e.UserToken + 1;
-			Thread.Sleep(500);
-			startSend(e);
+			
+			e.SetBuffer(0, bufferSize);
+			startReceive(e); //进入下一个接收周期
+		}
+
+		private void IOCompleted(object obj, SocketAsyncEventArgs e)
+		{
+			switch (e.LastOperation)
+			{
+				case SocketAsyncOperation.Receive:
+					receiveCompleted(null, e);
+					break;
+				case SocketAsyncOperation.Send:
+					sendCompleted(null, e);
+					break;
+				default:
+					return;
+			}
+		}
+
+		private void closeSocket(SocketAsyncEventArgs e)
+		{
+			string str = e.AcceptSocket.RemoteEndPoint.ToString();
+			
+			e.AcceptSocket.Shutdown(SocketShutdown.Send);
+			e.AcceptSocket.Close();
+			acceptLimit.Release(); //释放信号量
+			bufferManager.FreeBuffer(e); //释放缓存
+			saeaPool.Push(e); //回收saea进对象池
+			Console.WriteLine($"关闭来自{str}的连接");
 		}
 	}
 }
