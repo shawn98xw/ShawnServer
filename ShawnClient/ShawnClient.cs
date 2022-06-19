@@ -56,7 +56,7 @@ namespace SocketUtil
                 if (sendMessage == string.Empty)
                     break;
             }
-            //_socket.Shutdown(SocketShutdown.Both);
+            _socket.Shutdown(SocketShutdown.Both);
             _socket.Close();
             Console.WriteLine("发送消息结束");
             Console.ReadKey();

@@ -1,6 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Xml;
 
 namespace SceneServer
 {
@@ -36,105 +37,96 @@ namespace SceneServer
 		}
 		public void StartListen()
 		{
-			//1 实例化套接字(IP4寻找协议,流式协议,TCP协议)
+			//实例化套接字(IP4寻找协议,流式协议,TCP协议)
 			listenSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-			//2 创建IP对象
+			//创建IP对象
 			IPAddress address = IPAddress.Parse(ip);
-			//3 创建网络端口,包括ip和端口
+			//创建网络端口,包括ip和端口
 			IPEndPoint endPoint = new IPEndPoint(address, port);
-			//4 绑定套接字
+			//绑定套接字
 			listenSocket.Bind(endPoint);
-			//5 设置最大连接数
+			//设置最大连接数
 			listenSocket.Listen(int.MaxValue);
 			Console.WriteLine($"监听端口：{listenSocket.LocalEndPoint}");
-			//6 异步等待客户端连接
-			var acceptEventArgs = createAcceptEventArgs();
-			bool res = listenSocket.AcceptAsync(acceptEventArgs);
-		}
-		private SocketAsyncEventArgs createAcceptEventArgs()
-		{
+			
+			//异步等待客户端连接
 			var acceptEventArgs = new SocketAsyncEventArgs();
-			acceptEventArgs.Completed += new EventHandler<SocketAsyncEventArgs>(accept_Complete);
-			return acceptEventArgs;
-		}
-		private void accept_Complete(object obj, SocketAsyncEventArgs acceptEventArgs)
-		{
-			//接收客户端消息
-			var ioEventArgs = createIOEventArgs();
-			ioEventArgs.AcceptSocket = acceptEventArgs.AcceptSocket;
-			ioEventArgs.AcceptSocket.ReceiveAsync(ioEventArgs);
+			acceptEventArgs.Completed += new EventHandler<SocketAsyncEventArgs>(acceptComplete);
+			startAccept(acceptEventArgs);
 		}
 
-		private SocketAsyncEventArgs createIOEventArgs()
+		private void startAccept(SocketAsyncEventArgs e)
 		{
-			var ioEventArgs = new SocketAsyncEventArgs();
-			ioEventArgs.SetBuffer(new byte[1024 * 1024 * 2]);
-			ioEventArgs.Completed += new EventHandler<SocketAsyncEventArgs>(io_Complete);
-			return ioEventArgs;
+			e.AcceptSocket = null;
+			if (listenSocket.AcceptAsync(e) == false) //异步侦听连接
+				acceptComplete(null, e);
+		}
+		private void acceptComplete(object obj, SocketAsyncEventArgs e)
+		{
+			Socket clientSocket = e.AcceptSocket;
+			Console.WriteLine($"侦听到来自{clientSocket.RemoteEndPoint}的连接请求");
+
+			//开启一个新线程异步读取消息
+			SocketAsyncEventArgs receiveArgs = new SocketAsyncEventArgs();
+			receiveArgs.Completed += new EventHandler<SocketAsyncEventArgs>(receiveComplete);
+			receiveArgs.SetBuffer(new byte[1024], 0, 1024); //设置读取缓存
+			receiveArgs.AcceptSocket = e.AcceptSocket;
+			startReceive(receiveArgs);
+
+			//开启一个新线程异步发送消息
+			SocketAsyncEventArgs sendArgs = new SocketAsyncEventArgs();
+			sendArgs.Completed += new EventHandler<SocketAsyncEventArgs>(sendComplete);
+			sendArgs.AcceptSocket = e.AcceptSocket;
+			sendArgs.UserToken = 1; //用户数据
+			startSend(sendArgs);
+			
+			startAccept(e); //进入下一个侦听周期
 		}
 
-		private void io_Complete(object obj, SocketAsyncEventArgs ioEventArgs)
+		private void startReceive(SocketAsyncEventArgs e)
 		{
-			string str = Encoding.UTF8.GetString(ioEventArgs.Buffer);
-			Console.WriteLine(str);
-			
-			
-			
-			
+			if (e.AcceptSocket.ReceiveAsync(e) == false)
+				receiveComplete(null, e);
 		}
-
-		/// <summary>
-		/// 监听客户端连接
-		/// </summary>
-		private void ListenClientConnect()
+		private void receiveComplete(object obj, SocketAsyncEventArgs e)
 		{
-			while (true)
+			if (e.BytesTransferred == 0 || e.SocketError != SocketError.Success)
 			{
-				//阻塞地等待客户端连接，处理客户端链接业务
-				Socket clientSocket = listenSocket.Accept();
-				Role role = new Role();
-				rolesMap.Add(clientSocket, role);
-				clientSocket.Send(Encoding.UTF8.GetBytes($"Connected to server {listenSocket.LocalEndPoint}"));
-				var task = new Task(() =>
-				{
-					ReceiveMessage(clientSocket);
-				});
-				task.Start();
+				Console.WriteLine($"关闭来自{e.AcceptSocket.RemoteEndPoint}的连接");
+				e.AcceptSocket.Shutdown(SocketShutdown.Both);
+				e.AcceptSocket.Close();
+				return;
 			}
+			string str = Encoding.UTF8.GetString(e.Buffer, e.Offset, e.BytesTransferred);
+			Console.WriteLine($"收到来自{e.AcceptSocket.RemoteEndPoint}的消息：{str}");
+			
+			//进入下一个读取周期
+			startReceive(e);
 		}
-		/// <summary>
-		/// 接收客户端消息
-		/// </summary>
-		/// <param name="socket">来自客户端的socket</param>
-		private void ReceiveMessage(object socket)
-		{
-			Socket clientSocket = (Socket)socket;
-			while (true)
-			{
-				int length = clientSocket.Receive(buffer);
-				if (length == 0)
-				{
-					rolesMap.Remove(clientSocket);
-					break;
-				}
 
-				if (false == rolesMap.TryGetValue(clientSocket, out Role role))
-					continue;
-				string str = Encoding.UTF8.GetString(buffer, 0, length);
-				if (str == "l")
-					role.x--;
-				else if (str == "r")
-					role.x++;
-				else if (str == "u")
-					role.y++;
-				else if (str == "d")
-					role.y--;
-				else
-				{
-					
-				}
-				Console.WriteLine($"{clientSocket.RemoteEndPoint}:{str}, role position = ({role.x},{role.y})");
+		private void startSend(SocketAsyncEventArgs e)
+		{
+			if ((int)e.UserToken > 5)
+				return;
+
+			byte[] sendBuff = Encoding.UTF8.GetBytes($"服务器消息：{e.UserToken}");
+			e.SetBuffer(sendBuff, 0, sendBuff.Length);
+
+			if(e.AcceptSocket.SendAsync(e) == false)
+				sendComplete(null, e);
+		}
+		private void sendComplete(object obj, SocketAsyncEventArgs e)
+		{
+			if (e.SocketError != SocketError.Success)
+			{
+				e.AcceptSocket.Shutdown(SocketShutdown.Send);
+				e.AcceptSocket.Close();
+				return;
 			}
+			Console.WriteLine($"成功向{e.RemoteEndPoint}发送信息：{e.UserToken}");
+			e.UserToken = (int)e.UserToken + 1;
+			Thread.Sleep(500);
+			startSend(e);
 		}
 	}
 }
