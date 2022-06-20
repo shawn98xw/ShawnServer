@@ -14,3 +14,4 @@ Apple M1 Mac + MacOS 13.0 + Rider + .net 6.0
 ```
 git push git@github.com:shawn98xw/ShawnServer.git master
 ```
+
