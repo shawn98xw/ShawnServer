@@ -7,7 +7,7 @@ namespace SceneServer
         {
 			//创建一个server
 			SceneServer server = new SceneServer("aa", 8890);
-			server.StartListen();
+			//server.StartListen();
 			Console.ReadLine();
         }
 	}
