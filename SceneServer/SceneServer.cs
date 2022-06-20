@@ -10,14 +10,10 @@ namespace SceneServer;
 
 public class SceneServer
 {
-	public string ServerName;
-	public string ip;
-	public int port;
-	
-	public SceneServer(string name, int port)
+	public NetWork Net;
+
+	public SceneServer()
 	{
-		this.ServerName = name;
-		ip = "0.0.0.0";
-		this.port = port;
+		Net = new NetWork();
 	}
 }

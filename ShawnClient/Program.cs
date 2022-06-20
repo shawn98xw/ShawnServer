@@ -1,19 +1,16 @@
-﻿using SocketUtil;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
  
-namespace SocketClientApp
+namespace ShawnClient;
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            SocketClient client = new SocketClient(8890);
-            client.StartClient();
-            Console.ReadKey();
-        }
+        ShawnClient client = new ShawnClient();
+        client.Net.Connect(8890);
+        Console.ReadKey();
     }
 }

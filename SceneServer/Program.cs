@@ -5,9 +5,9 @@ namespace SceneServer
 	{
 		static void Main(string[] args)
         {
-			//创建一个server
-			SceneServer server = new SceneServer("aa", 8890);
-			//server.StartListen();
+			SceneServer server = new SceneServer();
+			server.Net.Listen(8890);
+			
 			Console.ReadLine();
         }
 	}

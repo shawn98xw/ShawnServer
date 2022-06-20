@@ -35,11 +35,13 @@ public class NetWork
 
 		acceptLimit = new SemaphoreSlim(connectCount, connectCount);
 	}
+
+	#region Listen & Accept
 	/// <summary>
 	/// 作为服务器开始监听客户端连接
 	/// </summary>
 	/// <param name="port"></param>
-	public void StartListen(int port)
+	public void Listen(int port)
 	{
 		//实例化套接字(IP4寻找协议,流式协议,TCP协议)
 		listenSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -55,19 +57,18 @@ public class NetWork
 		
 		//异步等待客户端连接
 		var acceptEventArgs = new SocketAsyncEventArgs();
-		acceptEventArgs.Completed += new EventHandler<SocketAsyncEventArgs>(acceptComplete);
+		acceptEventArgs.Completed += new EventHandler<SocketAsyncEventArgs>(acceptCompleted);
 		startAccept(acceptEventArgs);
 	}
-
 	private void startAccept(SocketAsyncEventArgs e)
 	{
 		acceptLimit.Wait();
 		
 		e.AcceptSocket = null;
 		if (listenSocket.AcceptAsync(e) == false) //异步侦听连接
-			acceptComplete(null, e);
+			acceptCompleted(null, e);
 	}
-	private void acceptComplete(object obj, SocketAsyncEventArgs e)
+	private void acceptCompleted(object obj, SocketAsyncEventArgs e)
 	{
 		Socket clientSocket = e.AcceptSocket;
 		Console.WriteLine($"侦听到来自{clientSocket.RemoteEndPoint}的连接请求");
@@ -80,7 +81,39 @@ public class NetWork
 
 		startAccept(e); //进入下一个侦听周期
 	}
+	#endregion
 
+	#region Connect
+	/// <summary>
+	/// 作为客户端发起连接
+	/// </summary>
+	public void Connect(int port)
+	{
+		Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
+		var connectEventArgs = new SocketAsyncEventArgs();
+		connectEventArgs.Completed += new EventHandler<SocketAsyncEventArgs>(connectCompleted);
+		connectEventArgs.AcceptSocket = clientSocket;
+		IPAddress address = IPAddress.Parse("127.0.0.1");
+		connectEventArgs.RemoteEndPoint = new IPEndPoint(address, port);
+
+		if (clientSocket.ConnectAsync(connectEventArgs) == false)
+			connectCompleted(null, connectEventArgs);
+	}
+	private void connectCompleted(object obj, SocketAsyncEventArgs e)
+	{
+		if(e.SocketError != SocketError.Success)
+			return;
+		Socket clientSocket = e.AcceptSocket;
+		Console.WriteLine($"连接到{clientSocket.RemoteEndPoint}");
+
+		//开启一个新线程异步接收消息
+		SocketAsyncEventArgs saea = saeaPool.Pop();
+		bufferPool.SetBuffer(saea);
+		saea.AcceptSocket = e.AcceptSocket;
+		startReceive(saea);
+	}
+	#endregion
 	private void startReceive(SocketAsyncEventArgs e)
 	{
 		if (e.AcceptSocket.ReceiveAsync(e) == false)
