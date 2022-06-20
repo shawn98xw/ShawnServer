@@ -8,5 +8,4 @@ public enum ENetNodeType
 public class NetNode
 {
     public ENetNodeType NodeType;
-    
 }
