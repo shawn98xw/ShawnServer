@@ -10,7 +10,8 @@ class Program
     static void Main(string[] args)
     {
         ShawnClient client = new ShawnClient();
-        client.Net.Connect(8890);
+        client.Net.Connect(8890); //连接SceneServer1
+        client.Net.Connect(8891); //连接SceneServer2
         Console.ReadKey();
     }
 }

@@ -7,7 +7,7 @@ namespace SceneServer
         {
 			SceneServer server = new SceneServer();
 			server.Net.Listen(8890);
-			
+			//server.Net.
 			Console.ReadLine();
         }
 	}
