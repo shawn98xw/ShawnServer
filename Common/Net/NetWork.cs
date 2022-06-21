@@ -73,7 +73,7 @@ public class NetWork
 		Socket clientSocket = e.AcceptSocket;
 		Console.WriteLine($"侦听到来自{clientSocket.RemoteEndPoint}的连接请求");
 
-		//开启一个新线程异步读取消息
+		//开启一个新线程异步接收消息
 		SocketAsyncEventArgs saea = saeaPool.Pop();
 		bufferPool.SetBuffer(saea);
 		saea.AcceptSocket = e.AcceptSocket;

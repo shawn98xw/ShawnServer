@@ -11,6 +11,7 @@ class Program
     {
         ShawnClient client = new ShawnClient();
         client.Net.Connect(8891); //连接SceneServer
+        
         Console.ReadKey();
     }
 }
