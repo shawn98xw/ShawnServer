@@ -2,7 +2,7 @@ using System;
 using System.Net.Sockets;
 using System.Collections.Generic;
 
-namespace Common;
+namespace Common.Net;
 
 /// <summary>
 /// 缓存池

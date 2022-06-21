@@ -2,7 +2,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
-namespace Common;
+namespace Common.Net;
 
 /// <summary>
 /// 参考IOCP模型实现的Socket通信功能

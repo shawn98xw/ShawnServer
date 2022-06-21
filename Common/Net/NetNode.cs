@@ -1,4 +1,4 @@
-namespace Common;
+namespace Common.Net;
 
 public enum ENetNodeType
 {

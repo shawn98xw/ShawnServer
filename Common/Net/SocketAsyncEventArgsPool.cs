@@ -4,7 +4,7 @@ using System.Text;
 using System;
 using System.Collections.Generic;
 
-namespace Common;
+namespace Common.Net;
 /// <summary>
 /// 加锁后支持多线程的saea对象池
 /// </summary>
