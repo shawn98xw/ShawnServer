@@ -10,10 +10,10 @@ namespace SceneServer;
 
 public class SceneServer
 {
-	public NetWork Net;
+	public NetNode Node { get; set; }
 
 	public SceneServer()
 	{
-		Net = new NetWork();
+		Node = new NetNode(EServiceType.Scene);
 	}
 }

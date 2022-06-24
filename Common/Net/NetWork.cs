@@ -1,5 +1,7 @@
+using System.Collections.Concurrent;
 using System.Net;
 using System.Net.Sockets;
+using System.Resources;
 using System.Text;
 
 namespace Common.Net;
@@ -16,7 +18,7 @@ public class NetWork
 	private int connectCount; //最大连接数
 	private int bufferSize; //缓存单位
 	private SemaphoreSlim acceptLimit; //控制同时访问线程数的信号量
-
+	public ConcurrentQueue<ConnectionEventArgs> ArgsQueue;
 	public NetWork()
 	{
 		listenSocket = null;
@@ -25,7 +27,7 @@ public class NetWork
 
 		bufferPool = new BufferPool(connectCount * bufferSize, bufferSize);
 		saeaPool = new SocketAsyncEventArgsPool(connectCount);
-		
+		ArgsQueue = new ConcurrentQueue<ConnectionEventArgs>();
 		for (int i = 0; i < connectCount; i++)
 		{
 			SocketAsyncEventArgs saea = new SocketAsyncEventArgs();
@@ -51,8 +53,8 @@ public class NetWork
 		IPEndPoint endPoint = new IPEndPoint(address, port);
 		//绑定套接字
 		listenSocket.Bind(endPoint);
-		//设置最大连接数
-		listenSocket.Listen(int.MaxValue);
+		//侦听队列：设置最大连接数
+		listenSocket.Listen(connectCount);
 		Console.WriteLine($"监听端口：{listenSocket.LocalEndPoint}");
 		
 		//异步等待客户端连接
@@ -70,9 +72,9 @@ public class NetWork
 	}
 	private void acceptCompleted(object obj, SocketAsyncEventArgs e)
 	{
-		Socket clientSocket = e.AcceptSocket;
-		Console.WriteLine($"侦听到来自{clientSocket.RemoteEndPoint}的连接请求");
-
+		Socket conn = e.AcceptSocket;
+		//conn.LocalEndPoint
+		Console.WriteLine($"侦听到来自{conn.RemoteEndPoint}的连接请求");
 		//开启一个新线程异步接收消息
 		SocketAsyncEventArgs saea = saeaPool.Pop();
 		bufferPool.SetBuffer(saea);
@@ -104,6 +106,7 @@ public class NetWork
 	{
 		if(e.SocketError != SocketError.Success)
 			return;
+
 		Socket clientSocket = e.AcceptSocket;
 		Console.WriteLine($"连接到{clientSocket.RemoteEndPoint}");
 
@@ -129,11 +132,22 @@ public class NetWork
 		string str = Encoding.UTF8.GetString(e.Buffer, e.Offset, e.BytesTransferred);
 		Console.WriteLine($"收到来自{e.AcceptSocket.RemoteEndPoint}的消息：{str}");
 		
-		//将消息回发
-		e.SetBuffer(e.Offset, e.BytesTransferred);
-		startSend(e);
+		e.SetBuffer(0, bufferSize);
+		startReceive(e); //进入下一个接收周期
 	}
 
+	public void Send(Socket conn, string str)
+	{
+		if(conn == null)
+			return;
+		
+		byte[] data = Encoding.UTF8.GetBytes(str);
+		var saea = saeaPool.Pop();
+		bufferPool.SetBuffer(saea);
+		saea.SetBuffer(data);
+		saea.AcceptSocket = conn;
+		startSend(saea);
+	}
 	private void startSend(SocketAsyncEventArgs e)
 	{
 		if(e.AcceptSocket.SendAsync(e) == false)
@@ -147,8 +161,8 @@ public class NetWork
 			return;
 		}
 		
-		e.SetBuffer(0, bufferSize);
-		startReceive(e); //进入下一个接收周期
+		bufferPool.FreeBuffer(e); //释放缓存
+		saeaPool.Push(e); //回收saea进对象池
 	}
 
 	private void IOCompleted(object obj, SocketAsyncEventArgs e)
