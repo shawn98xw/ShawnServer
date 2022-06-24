@@ -1,4 +1,4 @@
-## Socket异步编程模式
+## 异步非阻塞的Socket通信
 ### 特点
 异步非阻塞的 Socket 通信功能；  
 使用 SocketAsyncEventArgs 类，SAEA 类中实现了 IOCP 模型；  
